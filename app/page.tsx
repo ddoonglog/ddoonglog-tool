@@ -1,4 +1,4 @@
-import ShortsScriptGenerator from '@/components/ShortsScriptGenerator'
+import ShortsScriptGenerator from '../components/ShortsScriptGenerator'
 
 export default function Home() {
   return (
