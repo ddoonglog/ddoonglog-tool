@@ -1,5 +1,21 @@
-"dependencies": {
-  "next": "13.4.10",
-  "react": "18.2.0",
-  "react-dom": "18.2.0"
+{
+  "name": "ddoonglog-tool",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "13.4.10",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "file-saver": "^2.0.5"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2",
+    "postcss": "^8.4.16",
+    "autoprefixer": "^10.4.2"
+  }
 }
