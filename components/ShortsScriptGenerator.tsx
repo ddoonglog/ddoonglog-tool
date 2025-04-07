@@ -10,18 +10,38 @@ export default function ShortsScriptGenerator() {
   const [script, setScript] = useState('')
   const [scriptEn, setScriptEn] = useState('')
 
-  const getExpression = (korean: string) => {
-    if (korean.includes('놀람') || korean.includes('헐') || korean.includes('충격')) return 'Shocked / Surprised'
-    if (korean.includes('분노') || korean.includes('빡침')) return 'Angry / Frustrated'
-    if (korean.includes('멍') || korean.includes('한숨')) return 'Blank / Tired'
-    if (korean.includes('웃음')) return 'Smiling / Happy'
-    if (korean.includes('혼잣말')) return 'Thinking / Curious'
-    return 'Neutral'
+  const generateScript = () => {
+    const ko = `영상 주제: ${topic}\n\n(여기에 한글 대본 나옴)`
+    const en = `Video Topic: ${topic}\n\n(Here comes English script)`
+    setScript(ko)
+    setScriptEn(en)
   }
 
-  const generateScript = () => {
-    if (!topic.trim()) return
+  const handleDownload = () => {
+    const blob = new Blob([script + '\\n\\n---\\n\\n' + scriptEn], {
+      type: 'text/plain;charset=utf-8',
+    })
+    saveAs(blob, `ddoonglog_script_${Date.now()}.txt`)
+  }
 
+  return (
+    <div className=\"space-y-4\">
+      <Textarea
+        placeholder=\"예: 사장님이 이상했던 알바 썰\"
+        value={topic}
+        onChange={(e) => setTopic(e.target.value)}
+      />
+      <Button onClick={generateScript}>한/영 대본 생성</Button>
+      {script && (
+        <>
+          <Textarea value={script} readOnly />
+          <Textarea value={scriptEn} readOnly />
+          <Button onClick={handleDownload}>텍스트 파일 저장</Button>
+        </>
+      )}
+    </div>
+  )
+}
     const ko = `둥둥로그 쇼츠 영상 제작 템플릿 (40~60초)
 
 영상 제목:
