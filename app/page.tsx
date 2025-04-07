@@ -1,4 +1,4 @@
-import HelloBox from '../components/HelloBox'
+import ShortsScriptGenerator from '../components/ShortsScriptGenerator'
 
 export default function Home() {
   return (
