@@ -14,9 +14,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",                     // ✅ 경로 별칭 사용을 위한 설정
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]                    // ✅ "@/components/..." 같은 경로 쓸 수 있게 함
+      "@/*": ["./*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
